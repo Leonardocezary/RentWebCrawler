@@ -1,0 +1,189 @@
+
+                           README for Prowser 0.2.0
+
+===============================================================================
+  0. Contents
+===============================================================================
+
+    0. Contents
+    1. About Prowser
+    2. What's New in Version 0.2.0
+    3. Requirements
+    4. Usage
+    5. Change Log
+    6. To Do
+    7. Licenses
+    8. Third-party Source
+    9. Support
+
+
+===============================================================================
+  1. About Prowser
+===============================================================================
+
+Prowser is a "programmatic browser" library for Java. It enables programs to
+easily surf the web via an API that simulates the way GUI browsers are used.
+
+Prowser's features include:
+
+    * Web page retrieval by simply specifying a URL.
+    * Support for HTTP GET and POST methods.
+    * Ability to submit form data in a request, either via a query string (GET)
+      or in a request body (POST).
+    * Complex request creation through the use of request files.
+    * Automatic handling of redirects.
+    * Automatic handling of cookies.
+    * Ability to perform encrypted requests (https:).
+    * Ability to perform HTTP Basic and Digest Authentication requests.
+    * Access to retrieved web page as encoded page source (for scanning HTML).
+    * Access to retrieved web page in binary form (for downloading files).
+    * Ability to perform common browser operations normally provided via
+      standard buttons on GUI browsers (Back, Forward, Refresh, Home, and Stop).
+    * Configurable request timeout settings.
+    * Configurable HTTP version usage.
+    * Configurable user-agent string.
+    * Page history.
+    * Access to page data like content type, character set, and title.
+    * "Tabbed" browsing. 
+
+For more information, visit the following web sites:
+
+    http://prowser.sourceforge.net/
+    http://sourceforge.net/projects/prowser/
+
+
+===============================================================================
+  2. What's New in Version 0.2.0
+===============================================================================
+
+For a detailed list, see the distribution's CHANGES file. Highlights include:
+
+    * Added tabbed browsing! (NOTE: This renders the 0.1.0 API incompatible
+      with 0.2.0.)
+    * Overhauled history mechanism.
+    * "Debug" functionality now referred to as "Trace".
+    * Added methods for obtaining the final URI, the page titile, the
+      content-type, and the character set to the Response class.
+    * Other minor changes and enhancements.
+
+
+===============================================================================
+  3. Requirements
+===============================================================================
+
+Prowser requires Java 5.0 (1.5.0) or greater.
+
+
+===============================================================================
+  4. Usage
+===============================================================================
+
+To use the Prowser library in your applications:
+
+    1. Add file prowser-x.x.x.jar to the classpath used by your compiler (where
+       "x.x.x" is the version of Prowser contained in the JAR file).
+    
+    2. Import the following packages in each source file that will use Prowser:
+    
+           import com.zenkey.net.prowser.Prowser;
+           import com.zenkey.net.prowser.Request;
+           import com.zenkey.net.prowser.Response;
+
+    3. Write code using Prowser's API, which is documented at:
+    
+           http://prowser.sourceforge.net/javadoc/
+
+
+To run a program that uses the Prowser library, make sure file
+prowser-x.x.x.jar is in the classpath. For example, on a Windows machine, you
+could do something like this:
+
+    1. Change to the directory that contains your program's compiled *.class
+       file (e.g., YourProgram.class).
+      
+    2. Copy file prowser-x.x.x.jar to the current directory.
+  
+    3. Run the following command:
+
+           java -classpath .;prowser-x.x.x.jar YourProgram
+
+
+For more information on how to use Prowser's API (including examples), visit
+the following site:
+
+    http://prowser.sourceforge.net/
+
+
+===============================================================================
+  5. Change Log
+===============================================================================
+
+See the distribution file named CHANGES.
+
+
+===============================================================================
+  6. To Do
+===============================================================================
+
+The following is a list of TENTATIVE changes and enhancements:
+
+* Provide ability to specify custom request header fields.
+* Provide retrieval of request and response header fields after page is
+  retrieved.
+* Implement Prowser.saveFileAs(Request request, String filename).
+* Implement Prowser.saveFile(Request req), using filename from response header.
+* Provide ability to POST binary data.
+  (See HttpClient's PostMethod.setRequestEntity(RequestEntity requestEntity).)
+* Provide ability to POST multipart/form data.
+  (See http://jakarta.apache.org/commons/httpclient/methods/multipartpost.html.)
+* Provide ability to POST requests with user defined request bodies (e.g., for
+  making requests to SOAP services).
+* Implement disk-based page caching.
+* Implement setting of max size for history list. (Currently 15.)
+* Implement setting of max redirects. (Currently 10.)
+* Implement serialization of Prowser (and possibly Request) objects.
+* Implement better way to supress HttpClient log messages.
+* Update JUnit tests for Request class, and create JUnit tests for Prowser and
+  Response classes.
+* Implement encrypted password mechanism for Request(File) constructor.
+
+
+===============================================================================
+  7. Licenses
+===============================================================================
+
+Prowser is licensed under the GNU Lesser General Public License, as published
+by the Free Software Foundation. A copy of that license is provided with the
+Prowser distribution in a file named COPYING. See the following web site for
+more information:
+
+    http://www.gnu.org/licenses/licenses.html
+
+This version of Prowser includes software developed by The Apache Software
+Foundation. That software is licensed under the Apache License, Version 2.0. A
+copy of that license is provided with the Prowser distribution in a file named
+third-party-licenses/LICENSE. See the following web site for more information:
+
+    http://www.apache.org/licenses/
+
+
+===============================================================================
+  8. Third-party Source
+===============================================================================
+
+This version of Prowser uses the following Apache Jakarta components. The source
+code of these components is freely available at http://jakarta.apache.org/:
+
+    Jakarta Commons HttpClient
+    Jakarta Commons Codec
+    Jakarta Commons Logging
+
+
+===============================================================================
+  9. Support
+===============================================================================
+
+To report bugs, submit a feature request, or ask a question, go to the
+following site and click on "Support Requests":
+
+    http://sourceforge.net/projects/prowser/

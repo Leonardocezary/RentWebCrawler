@@ -1,0 +1,46 @@
+                           Prowser Change Log (CHANGES)
+
+0.2.0 (2006-02-21)
+------------------
+* Implemented "tabbed browsing", rendering the 0.1.0 version of the Prowser API
+  incompatible with this new version. As part of this upgrade, a new Tab class
+  was added to perform the page request/response transactions previously
+  handled by the Prowser class. In the 0.2.0 version, the Prowser class now
+  functions to create and own the Tab objects, as well as and maintain global
+  state information that is shared across all tabs of a Prowser instance (e.g.,
+  cookies, default config values, home page, etc.)
+* Overhauled the history mechanism by implementing the following changes:
+      o  goBack() and goForward() now return "cached" pages instead of
+         automatically refreshing the returned pages. (The returned pages can
+         be subsequently refreshed by simply executing tab.refresh().)
+      o  Added jumpBack() and jumpForward() methods to simulate the
+         functionality provided by the drop-down menus accessed by clicking the
+         little arrow buttons on the right sides of Back and Forward buttons in
+         mainstream GUI browsers.
+      o  Added the getHistoryIndex() method to indicate where the "current"
+         page resides in the history.
+      o  Added getHistorySize() to indicate how many items are in the history.
+* Added public method getTab() to the Response class in order to retrieve
+  the Tab object that generated the Response instance.
+* Added the following public methods to the Response class:
+      o  getUri() - Retrieves the final URI of the loaded page. Note that this
+         can be different from the original URI of the request because
+         server-side redirects can occur during request processing. Think of
+         this value as the URI that appears in a web browser's address bar
+         after the page has completed loading.  
+      o  getPageTitle() - Obtains a web page's title (i.e., the value in the
+         <title> tag).
+      o  getContentType() - Retrieve the value of the HTTP Content-type header.
+      o  getFilename() - Obtains the name of the retrieved web page file.
+* Changed "debug" terminology to "trace". This resulted in the setDebugFile()
+  and setDebugLevel() methods being renamed to setTraceFile() and
+  setTraceLevel(). Also, the DEBUG_* constants were renamed to TRACE_*. (Note
+  that all of these methods and constants are now part of the Tab class instead
+  of the Prowser class.)
+* Replaced the Request.printRequest() method with an overridden version of
+  the toString() method. The output of toString() produces the exact text that
+  printRequest() did.
+
+0.1.0 (2006-02-14)
+------------------
+* Initial release.
